@@ -53,6 +53,8 @@ line* initline(line* head) {
 // 插入数据
 line* insertline(line* head, int data, int add) { // 分别为进行插入的链表，插入的数据，插入的位置
 	line* tmp = (line*)malloc(sizeof(line));	  // 开辟新节点
+	if (tmp == NULL)
+		return NULL;
 	tmp->data = data;
 	tmp->pre = NULL;
 	tmp->next = NULL;

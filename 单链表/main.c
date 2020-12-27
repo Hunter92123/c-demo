@@ -31,6 +31,8 @@ LinkedList listinit() {
 //单链表的建立1，头插法建立单链表
 LinkedList LinkedListCreateH() {
 	Node* L  = (Node*)malloc(sizeof(Node));
+	if (L == NULL)
+		return NULL;
 	L->next = NULL;
 
 	printf("请输入5个数字\n");
@@ -39,7 +41,8 @@ LinkedList LinkedListCreateH() {
 	while (count < 5) {
 		scanf_s("%d", &x);
 		Node* p = (Node*)malloc(sizeof(Node));
-
+		if (p == NULL)
+			return NULL;
 		p->data = x;
 		p->next = L->next;
 		L->next = p;
@@ -51,6 +54,8 @@ LinkedList LinkedListCreateH() {
 //单链表的建立2，尾插法建立单链表
 LinkedList LinkedListCreateT() { 
 	Node* L = (Node*)malloc(sizeof(Node));		// 申请头结点空间
+	if (L == NULL)
+		return NULL;
 	L->next = NULL;								// 初始化一个空链表
 
 	Node* r = L;								// r始终指向终端节点，开始时指向头节点
@@ -61,6 +66,8 @@ LinkedList LinkedListCreateT() {
 	while (count < 5) {
 		scanf_s("%d", &x);
 		Node* p = (Node*)malloc(sizeof(Node));	// 申请新的结点
+		if (p == NULL)
+			return NULL;
 		p->data = x;							// 结点数据域赋值
 		r->next = p;							// 将结点插入到表头L-->|1|-->|2|-->NULL
 		r = p;									// 将r指向当前节点
@@ -81,7 +88,8 @@ void printList(LinkedList L) {
 }
 
 int main() {
-	Node* L = LinkedListCreateT();
-	printList(L);
+	Node* p;
+	p = LinkedListCreateT();
+	printList(p);
 	return 0;
 }
